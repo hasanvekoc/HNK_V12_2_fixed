@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>HNK — Yönetim Paneli V1</title>
+<style>
+*{box-sizing:border-box}body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,sans-serif;background:#0a0d14;color:#eef2ff}
+.app{display:flex;min-height:100vh}.side{width:240px;background:#0e121c;border-right:1px solid #202737;padding:24px 16px}
+.logo{font-size:25px;font-weight:800;letter-spacing:.08em;padding:8px 12px 30px}.logo span{opacity:.45;font-size:11px;display:block;letter-spacing:.16em;margin-top:4px}
+.nav{display:grid;gap:7px}.nav a{color:#9da7bd;text-decoration:none;padding:12px 13px;border-radius:10px;font-size:14px}.nav a.active,.nav a:hover{background:#171d2a;color:#fff}
+.main{flex:1;padding:28px;max-width:1400px}.top{display:flex;justify-content:space-between;align-items:center;margin-bottom:28px}.top h1{margin:0;font-size:26px}.status{font-size:12px;color:#7ee2ad;background:#10271d;border:1px solid #1b5138;padding:8px 11px;border-radius:999px}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}.card{background:#101520;border:1px solid #202737;border-radius:16px;padding:20px}.label{color:#8f9ab0;font-size:12px;margin-bottom:12px}.value{font-size:25px;font-weight:750}.sub{font-size:12px;color:#727e96;margin-top:8px}
+.panel{margin-top:18px;display:grid;grid-template-columns:1.3fr .7fr;gap:18px}.box{background:#101520;border:1px solid #202737;border-radius:16px;padding:20px}.box h2{font-size:16px;margin:0 0 18px}
+.row{display:flex;justify-content:space-between;padding:13px 0;border-bottom:1px solid #1c2330;font-size:13px}.row:last-child{border-bottom:0}.muted{color:#7f8aa1}.pill{font-size:11px;padding:5px 8px;border-radius:7px;background:#182334;color:#a9c5ff}
+.bar{height:9px;background:#1b2230;border-radius:99px;overflow:hidden;margin:12px 0}.fill{height:100%;width:62%;background:#8ea8ff;border-radius:99px}
+.actions{display:grid;grid-template-columns:1fr 1fr;gap:10px}.btn{padding:12px;border:1px solid #2b3446;background:#151c29;color:#fff;border-radius:10px;cursor:pointer}.btn:hover{background:#1b2433}
+@media(max-width:900px){.side{width:190px}.grid{grid-template-columns:repeat(2,1fr)}.panel{grid-template-columns:1fr}}
+@media(max-width:620px){.side{display:none}.main{padding:18px}.grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="app">
+<aside class="side">
+  <div class="logo">HNK<span>HYPER NEXUS KINGDOM</span></div>
+  <nav class="nav">
+    <a class="active" href="#">◈ Dashboard</a><a href="#">◫ Cüzdan</a><a href="#">◉ Staking</a>
+    <a href="#">↗ Dağıtım</a><a href="#">▣ Explorer</a><a href="#">⚙ Yönetim</a>
+  </nav>
+</aside>
+<main class="main">
+  <div class="top"><h1>HNK Dashboard</h1><div class="status">● TESTNET AKTİF</div></div>
+  <section class="grid">
+    <div class="card"><div class="label">TOPLAM ARZ</div><div class="value">1,000,000,000</div><div class="sub">HNK · sabit üst sınır</div></div>
+    <div class="card"><div class="label">CÜZDAN BAKİYESİ</div><div class="value">0.00 HNK</div><div class="sub">Bağlı cüzdan bekleniyor</div></div>
+    <div class="card"><div class="label">DOLAŞIMDA</div><div class="value">0 HNK</div><div class="sub">Henüz dağıtım yapılmadı</div></div>
+    <div class="card"><div class="label">AĞ DURUMU</div><div class="value">Hazır</div><div class="sub">Node bağlantısı bekleniyor</div></div>
+  </section>
+  <section class="panel">
+    <div class="box"><h2>Ağ Özeti</h2>
+      <div class="row"><span class="muted">Son blok</span><b>#0</b></div>
+      <div class="row"><span class="muted">Blok süresi hedefi</span><b>5 sn</b></div>
+      <div class="row"><span class="muted">Konsensüs</span><span class="pill">Proof of Stake</span></div>
+      <div class="row"><span class="muted">İşlem ücreti</span><b>Dinamik</b></div>
+      <div class="row"><span class="muted">Aktif node</span><b>0</b></div>
+    </div>
+    <div class="box"><h2>Arz Dağılımı</h2>
+      <div class="row"><span class="muted">Planlanan toplam</span><b>1B HNK</b></div>
+      <div class="bar"><div class="fill" style="width:0%"></div></div>
+      <div class="sub">Dağıtım modeli henüz kilitlenmedi.</div>
+      <h2 style="margin-top:24px">Hızlı İşlemler</h2>
+      <div class="actions"><button class="btn">Cüzdan</button><button class="btn">Explorer</button></div>
+    </div>
+  </section>
+  <section class="box" style="margin-top:18px"><h2>Son İşlemler</h2>
+    <div class="row"><span class="muted">Henüz işlem bulunmuyor.</span><span class="pill">TESTNET</span></div>
+  </section>
+</main>
+</div>
+</body>
+</html>
