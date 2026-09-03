@@ -1,0 +1,53 @@
+services:
+  node1:
+    build: .
+    restart: unless-stopped
+    environment:
+      HNK_DB: /data/node.sqlite3
+      HNK_PEER_TOKEN: ${HNK_PEER_TOKEN:-change-me}
+      HNK_PEERS: http://node2:8000,http://node3:8000
+    volumes:
+      - node1:/data
+    ports:
+      - "18011:8000"
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/health', timeout=2)"]
+      interval: 10s
+      timeout: 3s
+      retries: 5
+  node2:
+    build: .
+    restart: unless-stopped
+    environment:
+      HNK_DB: /data/node.sqlite3
+      HNK_PEER_TOKEN: ${HNK_PEER_TOKEN:-change-me}
+      HNK_PEERS: http://node1:8000,http://node3:8000
+    volumes:
+      - node2:/data
+    ports:
+      - "18012:8000"
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/health', timeout=2)"]
+      interval: 10s
+      timeout: 3s
+      retries: 5
+  node3:
+    build: .
+    restart: unless-stopped
+    environment:
+      HNK_DB: /data/node.sqlite3
+      HNK_PEER_TOKEN: ${HNK_PEER_TOKEN:-change-me}
+      HNK_PEERS: http://node1:8000,http://node2:8000
+    volumes:
+      - node3:/data
+    ports:
+      - "18013:8000"
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/health', timeout=2)"]
+      interval: 10s
+      timeout: 3s
+      retries: 5
+volumes:
+  node1: {}
+  node2: {}
+  node3: {}
