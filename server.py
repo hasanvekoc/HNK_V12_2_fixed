@@ -70,7 +70,7 @@ def block_row(height):
     r = ledger.db.execute(
         'SELECT height,hash,prev_hash,proposer,payload,state_root FROM blocks WHERE height=?',
         (height,)
-    ).fetchone()
+    except Exception: pa…
     if not r:
         return None
     return {
