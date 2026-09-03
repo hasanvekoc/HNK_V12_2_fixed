@@ -4,7 +4,7 @@ from pydantic import BaseModel
 from core import Ledger,txid,Wallet,make_vote
 import os,time,threading,json,urllib.request,urllib.error
 VERSION='12.2.0'
-app=FastAPI(title='HNK Node V11',version=VERSION)
+app=FastAPI(title='HNK Node V12.2',version=VERSION)
 
 # Allow the deployed HNK static panel to call the public API directly.
 app.add_middleware(
